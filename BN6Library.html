@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<script type="text/javascript" src="STDChips.js"></script>
+		<script type="text/javascript" src="MegaChips.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css"></script>
+
+	</head>
+
+	<body>
+
+		<table id="STDTable">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Element</th>
+					<th>MB</th>
+					<th>ATK</th>
+					<th>Codes</th>
+					<th>Description</th>
+					<th>Image</th>
+					<th>MoreDetails</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		
+		<table id="MegaTable">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Element</th>
+					<th>MB</th>
+					<th>ATK</th>
+					<th>Codes</th>
+					<th>Description</th>
+					<th>Image</th>
+					<th>MoreDetails</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		
+
+	</body>
+
+	<script>
+
+		$(document).ready(function() {
+			for (i=0; i<STDChips.length; i++){
+				var image = "<img src=" + STDChips[i].Image + "/>";
+				image.src = STDChips[i].Image;
+				$("#STDTable").append("<tr><td>" + STDChips[i].Name + "</td><td>" + STDChips[i].Element + "</td><td>" + STDChips[i].MB + "</td><td>" +
+					STDChips[i].ATK + "</td><td>" + STDChips[i].Codes + "</td><td>" + STDChips[i].Description + "</td><td>" + 
+						image + "</td><td>" + STDChips[i].MoreDetails + "</td></tr>");
+			}
+			$('#STDTable').DataTable();
+			
+			for (i=0; i<MegaChips.length; i++){
+				var image = "<img src=" + MegaChips[i].Image + "/>";
+				$("#MegaTable").append("<tr><td>" + MegaChips[i].Name + "</td><td>" + MegaChips[i].Element + "</td><td>" + MegaChips[i].MB + "</td><td>" +
+					MegaChips[i].ATK + "</td><td>" + MegaChips[i].Codes + "</td><td>" + MegaChips[i].Description + "</td><td>" + 
+						image + "</td><td>" + MegaChips[i].MoreDetails + "</td></tr>");
+			}
+			$('#MegaTable').DataTable();			
+			
+		})
+	
+	</script>
+
+</html>
